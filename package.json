@@ -1,0 +1,19 @@
+{
+  "name": "prismatic",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "Andrew Gioia <andrew@gioia.email> (https://andrewgioia.com/)",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "vite": "^8.1.5"
+  }
+}
