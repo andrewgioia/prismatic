@@ -91,9 +91,9 @@ header {
             width: clamp(10rem, 18vw, 22rem);
 
             .yellow {
-                --drift-delay: -11s;
-                --drift-duration: 43s;
-                --drift-rotation: 0.9deg;
+                --drift-delay: -9s;
+                --drift-duration: 16s;
+                --drift-rotation: 3deg;
                 --drift-x: -2rem;
                 --drift-y: -1rem;
 
@@ -105,9 +105,9 @@ header {
             }
 
             .orange {
-                --drift-delay: -23s;
-                --drift-duration: 37s;
-                --drift-rotation: -1.1deg;
+                --drift-delay: -3s;
+                --drift-duration: 30s;
+                --drift-rotation: -6deg;
                 --drift-x: 1.5rem;
                 --drift-y: 2.5rem;
 
@@ -128,8 +128,8 @@ header {
 
             .purple {
                 --drift-delay: -15s;
-                --drift-duration: 45s;
-                --drift-rotation: -0.8deg;
+                --drift-duration: 26s;
+                --drift-rotation: -2deg;
                 --drift-x: -0.8rem;
                 --drift-y: -1.5rem;
 
@@ -142,9 +142,9 @@ header {
             }
 
             .pink {
-                --drift-delay: -29s;
-                --drift-duration: 41s;
-                --drift-rotation: 1.2deg;
+                --drift-delay: -22s;
+                --drift-duration: 27s;
+                --drift-rotation: 3deg;
                 --drift-x: -2rem;
                 --drift-y: 2rem;
 
@@ -158,11 +158,11 @@ header {
         }
 
         > .blue {
-            --drift-delay: -31s;
-            --drift-duration: 53s;
-            --drift-rotation: 1deg;
+            --drift-delay: -17s;
+            --drift-duration: 30s;
+            --drift-rotation: 10deg;
             --drift-x: -2rem;
-            --drift-y: 1rem;
+            --drift-y: 1.5rem;
 
             background-color: #00aff4;
             clip-path: polygon(0 100%, 39% 18%, 83% 0, 100% 66%);
@@ -174,8 +174,8 @@ header {
 
         > .green {
             --drift-delay: -7s;
-            --drift-duration: 45s;
-            --drift-rotation: -2deg;
+            --drift-duration: 25s;
+            --drift-rotation: -10deg;
             --drift-x: -2rem;
             --drift-y: -1rem;
 
@@ -188,9 +188,9 @@ header {
         }
 
         > .cyan {
-            --drift-delay: -19s;
-            --drift-duration: 35s;
-            --drift-rotation: 1.5deg;
+            --drift-delay: -10s;
+            --drift-duration: 18s;
+            --drift-rotation: -7.5deg;
             --drift-x: 0;
             --drift-y: 2rem;
 
