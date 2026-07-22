@@ -321,7 +321,7 @@ main {
 #about {
     display: flex;
     justify-content: flex-end;
-    padding: clamp(3rem, 7.5dvw, 7rem);
+    padding: clamp(2rem, 7.5dvw, 7rem);
 
     .about {
         display: grid;
