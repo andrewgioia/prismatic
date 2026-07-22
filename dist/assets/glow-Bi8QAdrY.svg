@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <filter id="glow" color-interpolation-filters="sRGB">
+    <feComponentTransfer in="SourceAlpha" result="inverse">
+      <feFuncA type="table" tableValues="1 0" />
+    </feComponentTransfer>
+
+    <feGaussianBlur in="inverse" stdDeviation="2" result="blur" />
+    <feOffset in="blur" dx="3" dy="3" result="offsetBlur" />
+
+    <feComposite
+      in="offsetBlur"
+      in2="SourceAlpha"
+      operator="in"
+      result="innerGlow"
+    />
+
+    <feFlood flood-color="white" flood-opacity="0.9" result="glowColor" />
+    <feComposite
+      in="glowColor"
+      in2="innerGlow"
+      operator="in"
+      result="coloredGlow"
+    />
+
+    <feMerge>
+      <feMergeNode in="SourceGraphic" />
+      <feMergeNode in="coloredGlow" />
+    </feMerge>
+  </filter>
+</svg>

@@ -1,0 +1,48 @@
+header {
+    #pulses {
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+        position: absolute;
+        z-index: 2;
+        display: none; /*turning this off for now */
+
+        .pulse {
+            animation: shoot 15s linear infinite;
+            background: linear-gradient(
+                to right,
+                transparent 0%,
+                rgba(0, 171, 255, 0.08) 20%,
+                rgba(63, 202, 255, 0.4) 65%,
+                rgba(220, 248, 255, 0.95) 100%
+            );
+            border-radius: 999px;
+            height: var(--grid-width);
+            left: 0;
+            position: absolute;
+            translate: calc(-100% - 3rem) -50%;
+            width: clamp(4rem, 9vw, 9rem);
+
+            &::after {
+                animation: flare 0.25s ease-in-out infinite alternate;
+                background-color: #fff;
+                border-radius: 50%;
+                box-shadow:
+                    0 0 4px 2px rgba(255, 255, 255, 0.95),
+                    0 0 12px 5px rgba(75, 211, 255, 0.8),
+                    0 0 28px 8px rgba(0, 171, 255, 0.4);
+                content: "";
+                height: clamp(4px, 0.5vw, 8px);
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translate(50%, -50%);
+                width: clamp(4px, 0.5vw, 8px);
+            }
+        }
+
+        .second {
+            top: calc(var(--grid-row) + var(--grid-row) + var(--grid-width) / 2);
+        }
+    }
+}

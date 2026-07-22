@@ -19,3 +19,9 @@ Javascript should be only used when absolutely necessary. If we do use JS, it sh
 Cross-browser support is mandatory, even if it means doing things with `@supports` declarations, though we do not need to support browser versions earlier than 2023.
 
 When naming things, prefer single words over multiple words separated by hyphens.
+
+Use sementic HTML elements whenever possible, and prefer them. Raw `<div>` elements should be used as a last resort.
+
+Use `dvw`, `dvh`, and`rem` units when possible and when it makes sense. Do not use `em` units.
+
+Prefer whole numbers and normal values, like 1 and 0.5, instead of strange numbers like 0.96 and 0.44.

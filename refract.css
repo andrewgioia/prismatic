@@ -1,0 +1,80 @@
+header {
+    hgroup {
+        h1 {
+            span {
+                color: violet;
+                left: 0;
+                opacity: 0.6;
+                position: absolute;
+                top: 0;
+                transition: letter-spacing 2s ease-in-out, left 2s ease-in-out;
+                z-index: 0;
+
+                + span {
+                    color: blue;
+
+                    + span {
+                        color: cyan;
+
+                         + span {
+                            color: green;
+
+                            + span {
+                                color: yellow;
+
+                                + span {
+                                    color: orange;
+
+                                    + span {
+                                        color: red;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            strong {
+
+                &:hover {
+
+                    + span {
+                        letter-spacing: 20%;
+                        left: 10%;
+
+                        + span {
+                            letter-spacing: 20%;
+                            left: 5%;
+
+                            + span {
+                                letter-spacing: 20%;
+                                left: -2%;
+
+                                + span {
+                                    letter-spacing: 20%;
+                                    left: -10%;
+
+                                    + span {
+                                        letter-spacing: 20%;
+                                        left: -20%;
+
+                                        + span {
+                                            letter-spacing: 20%;
+                                            left: -35%;
+
+                                            + span {
+                                                letter-spacing: 20%;
+                                                left: -45%;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
