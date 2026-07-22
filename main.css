@@ -359,7 +359,7 @@ main {
 
         p {
             font-family: "Berkely Mono", monospace;
-            font-size: clamp(1.05rem, 2dvw, 1.25rem);
+            font-size: clamp(1.05rem, 1.75dvw, 1.4rem);
             line-height: 1.65;
             margin: 0;
 
