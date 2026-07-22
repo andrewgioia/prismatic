@@ -284,6 +284,7 @@ header {
 
 nav {
     align-items: flex-start;
+    animation: fade 1s cubic-bezier(0.22, 1, 0.36, 1) both;
     display: flex;
     height: var(--nav);
     justify-content: center;
@@ -296,6 +297,9 @@ nav {
         align-items: flex-end;
         display: flex;
         flex-direction: row;
+        font-family: monospace;
+        font-size: clamp(1.25rem, 3dvw, 2.5rem);
+        text-transform: uppercase;
         gap: max(1.5rem, 5dvw);
         justify-content: center;
         margin: 0;
@@ -303,13 +307,44 @@ nav {
 
         li {
             display: flex;
-        }
 
-        a {
-            font-family: monospace;
-            font-size: clamp(1.25rem, 3dvw, 2.5rem);
-            text-transform: uppercase;
+            &:first-child {
+                display: none;
+            }
         }
+    }
+
+    &.scroll {
+        animation: drop 400ms cubic-bezier(0.22, 1, 0.36, 1) both;
+        background: linear-gradient(to bottom, rgba(17, 17, 17, 1) 0, rgba(17, 17, 17, 0.5));
+        backdrop-filter: blur(4px);
+        left: 0;
+        mask-image: linear-gradient(
+            to bottom,
+            #000 0%,
+            #000 60%,
+            transparent 100%
+        );
+        position: fixed;
+        top: var(--nav);
+
+        menu {
+            font-size: 1.25rem;
+            gap: min(1.5rem, 5dvw);
+
+            li:first-child {
+                display: flex;
+
+                span {
+                    position: relative;
+                    top: 0.125rem;
+                }
+            }
+        }
+    }
+
+    &.leaving {
+        animation: rise 400ms cubic-bezier(0.64, 0, 0.78, 0) both;
     }
 }
 
@@ -441,6 +476,42 @@ main {
     }
 }
 
+@keyframes drop {
+    from {
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(1.5rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rise {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+}
+
 @keyframes breathe {
     0%,
     100% {
@@ -515,7 +586,8 @@ main {
     h1,
     #shapes .shape,
     #pulses .pulse,
-    #pulses .pulse::after {
+    #pulses .pulse::after,
+    nav.scroll {
         animation: none;
     }
 }
