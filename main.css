@@ -9,6 +9,7 @@
     --grid-width: 1.5px;
     --nav: clamp(5rem, 12dvh, 8rem);
     --orange: #ff8538;
+    --padding: clamp(2rem, 7.5dvw, 7rem);
     --pink: #ff68ac;
     --purple: #df8fc7;
     --rainbow: linear-gradient(96deg, rgb(251, 81, 75) 0%, rgb(251, 166, 55) 18%, rgb(246, 220, 49) 32%, rgb(47, 218, 104) 52%, rgb(46, 207, 239) 68%, rgb(108, 98, 248) 84%, rgb(214, 106, 240) 100%);
@@ -284,7 +285,7 @@ nav {
     height: var(--nav);
     justify-content: center;
     margin-top: calc(-1 * var(--nav));
-    padding-top: 2.5dvh;
+    padding: 2.5dvh var(--padding) 0;
     position: relative;
     z-index: 2;
 
@@ -304,7 +305,7 @@ nav {
         a {
             color: #fff;
             font-family: monospace;
-            font-size: clamp(1.25rem, 4dvh, 2.25rem);
+            font-size: clamp(1.25rem, 3dvw, 2.5rem);
             text-transform: uppercase;
         }
     }
@@ -321,26 +322,28 @@ main {
 #about {
     display: flex;
     justify-content: flex-end;
-    padding: clamp(2rem, 7.5dvw, 7rem);
+    padding: var(--padding);
 
     .about {
         display: grid;
-        gap: clamp(3rem, 7.5dvw, 7rem);
+        gap: clamp(4rem, 7.5dvw, 7rem);
         grid-template-areas:
             "intro"
             "profile";
+        grid-template-rows: 1fr auto;
         margin-inline: auto;
         max-width: 120rem;
     }
 
     .intro {
+        align-self: flex-end;
         grid-area: intro;
         /*max-width: 40rem;*/
 
         h2 {
             color: var(--cyan);
             font-family: Futura, sans-serif;
-            font-size: clamp(2rem, 6dvw, 7rem);
+            font-size: clamp(2.25rem, 6dvw, 7rem);
             letter-spacing: -0.4dvw;
             line-height: 1;
             margin: 0 0 clamp(2.5rem, 6dvw, 4.5rem);
@@ -354,7 +357,7 @@ main {
 
         p {
             font-family: "Berkely Mono", monospace;
-            font-size: clamp(1rem, 2vw, 1.5rem);
+            font-size: clamp(1.05rem, 2dvw, 1.6rem);
             line-height: 1.65;
             margin: 0;
 
@@ -381,14 +384,14 @@ main {
 
         h3 {
             color: var(--gray);
-            font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+            font-size: clamp(1rem, 1.5vw, 1.125rem);
             font-weight: normal;
             letter-spacing: 0.14em;
             margin: 0 0 1.5rem;
         }
 
         dl {
-            font-size: clamp(0.75rem, 1.4vw, 1rem);
+            font-size: clamp(0.875rem, 1.5dvw, 1.125rem);
             margin: 0;
         }
 
@@ -459,31 +462,9 @@ main {
     }
 }
 
-@keyframes shoot { /* 15s */
-    0%,
-    96.66667% {
-        translate: calc(-100% - 3rem) -50%;
-    }
-
-    100% {
-        translate: calc(100vw + 100%) -50%;
-    }
-}
-
-@keyframes flare {
-    from {
-        opacity: 0.75;
-        transform: translate(50%, -50%) scale(0.85);
-    }
-
-    to {
-        opacity: 1;
-        transform: translate(50%, -50%) scale(1.15);
-    }
-}
-
 /* progressive enhancement for chromium to show perfect-fit grid "squares" */
-@supports (opacity: calc(1px / 1px)) {
+@supports (opacity: calc(1px / 1px))
+{
     header {
         --grid-row: calc(100% / var(--grid-rows));
 
@@ -494,7 +475,8 @@ main {
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1024px)
+{
     :root {
         --grid-size: 5vw;
     }
@@ -512,6 +494,7 @@ main {
         align-items: end;
         grid-template-areas: "profile intro";
         grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        grid-template-rows: 1fr;
     }
 
     #about .intro {

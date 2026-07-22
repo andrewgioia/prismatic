@@ -46,3 +46,28 @@ header {
         }
     }
 }
+
+@keyframes shoot /* 15s */
+{
+    0%,
+    96.66667% {
+        translate: calc(-100% - 3rem) -50%;
+    }
+
+    100% {
+        translate: calc(100vw + 100%) -50%;
+    }
+}
+
+@keyframes flare
+{
+    from {
+        opacity: 0.75;
+        transform: translate(50%, -50%) scale(0.85);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(50%, -50%) scale(1.15);
+    }
+}
