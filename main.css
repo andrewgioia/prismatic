@@ -362,14 +362,14 @@ main {
             font-size: clamp(2.25rem, 5dvw, 7rem);
             letter-spacing: -0.4dvw;
             line-height: 1;
-            margin: 0 5dvw clamp(2.5rem, 6dvw, 4.5rem) 0;
+            margin: 5dvw 5dvw clamp(2.25rem, 6dvw, 4.5rem) 0;
             text-shadow: 0 2px 1px #000;
             text-transform: uppercase;
         }
 
         p {
             font-family: "Berkely Mono", monospace;
-            font-size: clamp(1rem, 1.75dvw, 1.4rem);
+            font-size: clamp(0.95rem, 1.75dvw, 1.4rem);
             line-height: 1.5;
             margin: 0;
 
@@ -382,7 +382,7 @@ main {
 
     .columns {
         display: grid;
-        gap: clamp(4rem, 7.5dvw, 7rem);
+        gap: clamp(3rem, 7.5dvw, 7rem);
         grid-template-areas:
             "primary"
             "secondary";
@@ -427,14 +427,14 @@ main {
 
         h4 {
             color: var(--gray);
-            font-size: clamp(1rem, 1.5vw, 1.125rem);
+            font-size: clamp(0.95rem, 1.5dvw, 1.125rem);
             font-weight: normal;
             letter-spacing: 0.14em;
-            margin: 0 0 1.5rem;
+            margin: 0 0 clamp(1.15rem, 2dvw, 1.5rem);
         }
 
         dl {
-            font-size: clamp(0.85rem, 1.5dvw, 1.125rem);
+            font-size: clamp(0.8rem, 1.5dvw, 1.125rem);
             margin: 0;
         }
 
