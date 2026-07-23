@@ -15,6 +15,7 @@
     --purple: #df8fc7;
     --rainbow: linear-gradient(96deg, rgb(251, 81, 75) 0%, rgb(251, 166, 55) 18%, rgb(246, 220, 49) 32%, rgb(47, 218, 104) 52%, rgb(46, 207, 239) 68%, rgb(108, 98, 248) 84%, rgb(214, 106, 240) 100%);
     --secondary: #444;
+    --tertiary: #333;
     --text: #eee7db;
     --yellow: #fff600;
 }
@@ -357,6 +358,7 @@ main {
 
     article {
         min-height: 100lvh;
+        box-shadow: 0 1px 0 0 var(--tertiary);
 
         h3 {
             color: var(--cyan);
@@ -579,7 +581,7 @@ main {
 }
 
 footer {
-    border-top: 1.5px solid var(--secondary);
+    border-top: 1.5px solid var(--tertiary);
     isolation: isolate;
     overflow: hidden;
     padding: clamp(4rem, 8lvw, 7rem) var(--padding) var(--padding);
