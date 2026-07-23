@@ -10,7 +10,7 @@
     --grid-width: 1.5px;
     --nav: clamp(5rem, 12lvh, 8rem);
     --orange: #ff8538;
-    --padding: clamp(2rem, 7.5lvw, 7rem);
+    --padding: 2rem 2rem 4rem;
     --pink: #ff68ac;
     --purple: #df8fc7;
     --rainbow: linear-gradient(96deg, rgb(251, 81, 75) 0%, rgb(251, 166, 55) 18%, rgb(246, 220, 49) 32%, rgb(47, 218, 104) 52%, rgb(46, 207, 239) 68%, rgb(108, 98, 248) 84%, rgb(214, 106, 240) 100%);
@@ -78,7 +78,7 @@ header {
         100% 100%,
         var(--grid-size) calc(100% + 12px),
         100% var(--grid-size);
-    box-shadow: inset 0 0 0 var(--grid-width) var(--bg);
+    box-shadow: inset 0 0 0 var(--grid-width) var(--bg), 0 1px 0 0 var(--tertiary);
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 2fr 1fr;
@@ -292,7 +292,7 @@ nav {
     height: var(--nav);
     justify-content: center;
     margin-top: calc(-1 * var(--nav));
-    padding: 2.5lvh var(--padding) 0;
+    padding: 0 2rem;
     position: relative;
     z-index: 2;
 
@@ -329,6 +329,7 @@ nav {
             #000 60%,
             transparent 100%
         );
+        padding: 2.5lvh 2rem 0;
         position: fixed;
         top: var(--nav);
         width: 100lvw;
@@ -584,7 +585,7 @@ footer {
     border-top: 1.5px solid var(--tertiary);
     isolation: isolate;
     overflow: hidden;
-    padding: clamp(4rem, 8lvw, 7rem) var(--padding) var(--padding);
+    padding: var(--padding);
     position: relative;
 
     &::before {
@@ -770,6 +771,14 @@ footer {
 
 @media (min-width: 768px)
 {
+    :root {
+        --padding: clamp(2rem, 7.5lvw, 7rem);
+    }
+
+    nav {
+        padding: 2.5lvh var(--padding) 0;
+    }
+
     main article p {
         line-height: 1.6;
     }
@@ -784,8 +793,8 @@ footer {
         }
     }
 
-    footer .newsletter .controls {
-        grid-template-columns: minmax(0, 1fr) auto;
+    footer {
+        padding: clamp(4rem, 8lvw, 7rem) var(--padding) var(--padding);
     }
 }
 
