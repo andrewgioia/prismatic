@@ -4,11 +4,11 @@
   <title>Prismatic</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script type="module" crossorigin src="/assets/index-D700LqqU.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-DZoFnajf.css">
+  <script type="module" crossorigin src="/assets/index-DnKu3WO7.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-C7jrPQlG.css">
 </head>
 <body>
-  <header>
+  <header id="top">
     <!--<div id="pulses" aria-hidden="true">
       <span class="pulse second"></span>
     </div>-->
@@ -110,27 +110,52 @@
             This is another paragraph that pads this section a bit more and perhaps is a bit more practical.
           </p>
         </aside>
-        <section style="height:10000px;">
+        <section>
           <ul>
             <li class="project">
-              <div class="cover">
-                <img src="/assets/oblivia-gLQgmAL0.jpg" alt="Oblivia pixel-art skull icon">
-              </div>
-              <div class="details">
-                <p class="kicker">Coming early 2027.</p>
-                <h4>Oblivia</h4>
-                <p class="summary">
-                  Roguelite fantasy card game. Pick your class, arm yourself, build your deck of spells, and battle!
-                </p>
-              </div>
+              <img src="/assets/oblivia-gLQgmAL0.jpg" alt="Oblivia pixel-art skull icon">
+              <h4>Oblivia</h4>
+              <time>Early 2027</time>
+              <p>
+                Roguelite fantasy card game. Pick your class, arm yourself, build your deck of spells, and battle!
+              </p>
             </li>
           </ul>
         </section>
       </div>
     </article>
   </main>
-  <footer>
-    Copyright &copy; 2026 Prismatic LLC
+  <footer id="contact">
+    <div class="content">
+      <div class="closing">
+        <p class="eyebrow">Prismatic // Software + Games</p>
+        <h2>Make good things. Treat people well.</h2>
+      </div>
+      <form class="newsletter">
+        <div>
+          <h3>Release notes, occasionally.</h3>
+          <p id="newsletter-note">
+            Get an occasional update when we release software, launch a game, or have something worth sharing. We&rsquo;ll never spam you or sell your email address.
+          </p>
+        </div>
+        <div class="signup">
+          <label for="newsletter-email">Email address</label>
+          <div class="controls">
+            <input id="newsletter-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" aria-describedby="newsletter-note" required>
+            <button type="submit">Keep me posted</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="bottom">
+      <a class="wordmark" href="#top">Prismatic</a>
+      <ul class="links" aria-label="Footer navigation">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#top">Back to top &uarr;</a></li>
+      </ul>
+      <p class="copyright">Copyright &copy; 2026 Prismatic LLC</p>
+    </div>
   </footer>
 </body>
 </html>

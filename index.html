@@ -8,7 +8,7 @@
   <script type="module" src="main.js"></script>
 </head>
 <body>
-  <header>
+  <header id="top">
     <!--<div id="pulses" aria-hidden="true">
       <span class="pulse second"></span>
     </div>-->
@@ -126,7 +126,31 @@
     </article>
   </main>
   <footer>
-    Copyright &copy; 2026 Prismatic LLC
+    <section>
+      <big>Prismatic // Software + Games</big>
+      <strong>Make good things that last</strong>
+      <form action="" method="post">
+        <em>Very occasional release notes</em>
+        <p id="note">
+          Get updates a few times a year when we release software, launch a game, or have something worth sharing. We&rsquo;ll never spam you or sell your email address.
+        </p>
+        <label for="email">Email address</label>
+        <div class="group">
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="zoidberg@freemail.web" aria-describedby="note" required>
+          <button type="submit">Keep me posted</button>
+        </div>
+      </form>
+    </section>
+    <aside>
+      <a href="#" aria-label="Prismatic logo">💎</a>
+      <ul aria-label="Footer navigation">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#">Back to top &uarr;</a></li>
+      </ul>
+      <small>&copy; 2026 Prismatic LLC</small>
+    </aside>
   </footer>
 </body>
 </html>
