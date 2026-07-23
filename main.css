@@ -10,7 +10,7 @@
     --grid-width: 1.5px;
     --nav: clamp(5rem, 12lvh, 8rem);
     --orange: #ff8538;
-    --padding: 2rem 2rem 4rem;
+    --padding: clamp(2rem, 7.5lvw, 7rem);
     --pink: #ff68ac;
     --purple: #df8fc7;
     --rainbow: linear-gradient(96deg, rgb(251, 81, 75) 0%, rgb(251, 166, 55) 18%, rgb(246, 220, 49) 32%, rgb(47, 218, 104) 52%, rgb(46, 207, 239) 68%, rgb(108, 98, 248) 84%, rgb(214, 106, 240) 100%);
@@ -56,7 +56,7 @@ header {
     );
 
     width: 100%;
-    height: 100lvh;
+    height: 100svh; /* we want this to fit within the browser controls */
     background-color: var(--bg);
     background-image:
         linear-gradient(
@@ -292,7 +292,7 @@ nav {
     height: var(--nav);
     justify-content: center;
     margin-top: calc(-1 * var(--nav));
-    padding: 0 2rem;
+    padding: 2.5lvh var(--padding) 0;
     position: relative;
     z-index: 2;
 
@@ -358,7 +358,7 @@ main {
     color: var(--text);
 
     article {
-        min-height: 100lvh;
+        min-height: 100svh;
         box-shadow: 0 1px 0 0 var(--tertiary);
 
         h3 {
@@ -771,14 +771,6 @@ footer {
 
 @media (min-width: 768px)
 {
-    :root {
-        --padding: clamp(2rem, 7.5lvw, 7rem);
-    }
-
-    nav {
-        padding: 2.5lvh var(--padding) 0;
-    }
-
     main article p {
         line-height: 1.6;
     }
