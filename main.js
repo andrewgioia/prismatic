@@ -6,7 +6,7 @@ if (header && nav) {
     let updateQueued = false;
 
     const updateNav = () => {
-        const headerEnd = header.offsetTop + header.offsetHeight;
+        const headerEnd = header.offsetTop + header.offsetHeight - 1;
         const passedHeader = window.scrollY >= headerEnd;
 
         if (passedHeader) {

@@ -298,7 +298,7 @@ nav {
         display: flex;
         flex-direction: row;
         font-family: monospace;
-        font-size: clamp(1.25rem, 3dvw, 2.5rem);
+        font-size: clamp(1.25rem, 3dvw, 2.25rem);
         text-transform: uppercase;
         gap: max(1.5rem, 5dvw);
         justify-content: center;
@@ -318,6 +318,7 @@ nav {
         animation: drop 400ms cubic-bezier(0.22, 1, 0.36, 1) both;
         background: linear-gradient(to bottom, rgba(17, 17, 17, 1) 0, rgba(17, 17, 17, 0.5));
         backdrop-filter: blur(4px);
+        justify-content: flex-start;
         left: 0;
         mask-image: linear-gradient(
             to bottom,
@@ -327,6 +328,7 @@ nav {
         );
         position: fixed;
         top: var(--nav);
+        width: 100dvw;
 
         menu {
             font-size: 1.25rem;
@@ -353,29 +355,6 @@ main {
 
     article {
         min-height: 100dvh;
-    }
-}
-
-#about {
-    display: flex;
-    justify-content: flex-end;
-    padding: var(--padding);
-
-    .about {
-        display: grid;
-        gap: clamp(4rem, 7.5dvw, 7rem);
-        grid-template-areas:
-            "intro"
-            "profile";
-        grid-template-rows: 1fr auto;
-        margin-inline: auto;
-        max-width: 120rem;
-    }
-
-    .intro {
-        align-self: flex-end;
-        grid-area: intro;
-        /*max-width: 40rem;*/
 
         h3 {
             color: var(--cyan);
@@ -386,40 +365,67 @@ main {
             margin: 0 5dvw clamp(2.5rem, 6dvw, 4.5rem) 0;
             text-shadow: 0 2px 1px #000;
             text-transform: uppercase;
-
-            span {
-                color: var(--cyan);
-            }
         }
 
         p {
             font-family: "Berkely Mono", monospace;
-            font-size: clamp(1.05rem, 1.75dvw, 1.4rem);
-            line-height: 1.65;
+            font-size: clamp(1rem, 1.75dvw, 1.4rem);
+            line-height: 1.5;
             margin: 0;
 
             + p {
                 margin-top: 1.5em;
                 margin-bottom: -0.5rem;
             }
+        }
+    }
 
-            strong:first-of-type {
+    .columns {
+        display: grid;
+        gap: clamp(4rem, 7.5dvw, 7rem);
+        grid-template-areas:
+            "primary"
+            "secondary";
+        grid-template-rows: 1fr auto;
+        margin-inline: auto;
+        max-width: 120rem;
+
+        section {
+            align-self: end;
+            grid-area: primary;
+        }
+
+        aside {
+            align-self: end;
+            grid-area: secondary;
+        }
+    }
+}
+
+#about {
+    display: flex;
+    justify-content: flex-end;
+    padding: var(--padding);
+
+    section
+    {
+        p strong
+        {
+            &:first-of-type {
                 color: var(--blue);
             }
 
-            strong:last-of-type {
+            &:last-of-type {
                 color: var(--pink);
             }
         }
     }
 
-    .profile {
-        align-self: end;
+    aside {
         font-family: "Berkely Mono", monospace;
-        grid-area: profile;
         text-transform: uppercase;
 
-        h3 {
+        h4 {
             color: var(--gray);
             font-size: clamp(1rem, 1.5vw, 1.125rem);
             font-weight: normal;
@@ -428,7 +434,7 @@ main {
         }
 
         dl {
-            font-size: clamp(0.875rem, 1.5dvw, 1.125rem);
+            font-size: clamp(0.85rem, 1.5dvw, 1.125rem);
             margin: 0;
         }
 
@@ -475,6 +481,86 @@ main {
         }
     }
 }
+
+#projects {
+    display: flex;
+    justify-content: flex-end;
+    padding: var(--padding);
+
+    h3 {
+        color: var(--purple);
+    }
+
+    .columns {
+        width: 100%;
+
+        aside {
+            bottom: var(--padding);
+            padding-top: 10dvh;
+            position: sticky;
+        }
+
+        section {
+            width: 100%;
+        }
+    }
+
+    ul {
+        display: grid;
+        gap: clamp(2rem, 4vw, 4rem);
+        list-style: none;
+        margin: 0;
+        padding: 4rem 0 0;
+    }
+
+    .project {
+        align-items: flex-start;
+        background-color: #444;
+        box-shadow: 0.5rem 0.5rem 0 #000;
+        display: grid;
+        gap: clamp(1.25rem, 3vw, 2.25rem);
+        grid-template-columns: clamp(5.5rem, 18vw, 8.5rem) minmax(0, 1fr);
+        padding: clamp(1rem, 2.5vw, 1.75rem);
+
+        .cover {
+            img {
+                aspect-ratio: 1;
+                border-radius: 22%;
+                box-shadow:
+                    inset 0 0 0 1px rgba(255, 255, 255, 0.16),
+                    0 0.5rem 1.25rem rgba(0, 0, 0, 0.25);
+                display: block;
+                image-rendering: pixelated;
+                object-fit: cover;
+                width: 100%;
+            }
+        }
+
+        .kicker {
+            color: var(--purple);
+            font-size: 1rem;
+            line-height: 1.5;
+            margin: 0 0 0.75rem;
+            text-transform: uppercase;
+        }
+
+        h4 {
+            font-family: Futura, sans-serif;
+            font-size: clamp(1.5rem, 4dvw, 2.5rem);
+            letter-spacing: -0.05em;
+            line-height: 1.1;
+            margin: 0 0 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .summary {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+    }
+}
+
 
 @keyframes drop {
     from {
@@ -548,6 +634,13 @@ main {
     }
 }
 
+@media (min-width: 768px)
+{
+    main article p {
+        line-height: 1.6;
+    }
+}
+
 @media (min-width: 1024px)
 {
     :root {
@@ -563,21 +656,34 @@ main {
         width: min(60rem, 75dvw);
     }
 
-    #about .about {
-        align-items: end;
-        grid-template-areas: "profile intro";
-        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-        grid-template-rows: 1fr;
+    nav.scroll {
+        width: 45dvw;
     }
 
-    #about .intro {
-        justify-self: end;
+    main article p {
+        line-height: 1.65;
+    }
+
+    main .columns {
+        align-items: end;
+        grid-template-areas: "secondary primary";
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        grid-template-rows: 1fr;
+
+        section {
+            justify-self: end;
+        }
+    }
+
+    main #projects .columns section {
+        justify-self: start;
+        align-self: stretch;
     }
 }
 
 @media (min-width: 1440px)
 {
-    #about .intro p {
+    main article p {
         font-size: 1.6rem;
     }
 }
