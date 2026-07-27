@@ -518,12 +518,25 @@ main {
     }
 
     .project {
-        filter: drop-shadow(0.5rem 0.5rem 0 #000);
+        filter: drop-shadow(0.5rem 0.5rem 0 var(--shadow));
+        --accent: var(--purple);
+        --background: #444;
+        --color: var(--text);
+        --icon: #000;
+        --shadow: #000;
+
+        &.kithkin {
+            --accent: #00c8cf;
+            --background: #e2dacb;
+            --color: var(--bg);
+            --icon: #008e90;
+            --shadow: #807c74;
+        }
 
         > div {
             align-items: center;
-            background-color: #444;
-            box-shadow: 0.5rem 0.5rem 0 #000;
+            background-color: var(--background);
+            color: var(--color);
             display: grid;
             gap: clamp(1.25rem, 3vw, 2.25rem);
             grid-template-areas:
@@ -538,16 +551,18 @@ main {
             padding: clamp(2rem, 6lvw, 3rem);
 
             &.trapezoid {
-                box-shadow: none;
                 clip-path: polygon(3% 5%, 96% 1%, 100% 100%, 0 95%);
+            }
+
+            &.parallelogram {
+                clip-path: polygon(1% 3%, 96% 2%, 100% 100%, 3% 97%);
             }
 
             img {
                 aspect-ratio: 1;
                 border-radius: 22%;
-                box-shadow:
-                    inset 0 0 0 1px rgba(255, 255, 255, 0.16),
-                    0 0.5rem 1.25rem rgba(0, 0, 0, 0.25);
+                border: 2px solid var(--icon);
+                box-shadow: 4px 4px 0 var(--icon);
                 display: block;
                 grid-area: icon;
                 image-rendering: pixelated;
@@ -567,12 +582,13 @@ main {
 
             time {
                 align-items: center;
-                border: 2px solid var(--purple);
+                border: 2px solid var(--accent);
                 border-radius: 999px;
-                color: var(--purple);
+                color: var(--accent);
                 display: flex;
                 font-family: var(--font-mono);
                 font-size: 0.85rem;
+                font-weight: 900;
                 grid-area: date;
                 justify-content: center;
                 line-height: 1;
