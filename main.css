@@ -642,6 +642,10 @@ footer {
         grid-area: name;
         margin: 0 0 0.5rem;
         text-transform: uppercase;
+
+        > span {
+            color: var(--gray);
+        }
     }
 
     strong {
@@ -666,6 +670,7 @@ footer {
             font-size: 1rem;
             font-style: normal;
             font-weight: bold;
+            text-transform: uppercase;
         }
 
         p {
@@ -686,6 +691,7 @@ footer {
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
+            margin: 0 -2px;
 
             input,
             button {
@@ -728,9 +734,15 @@ footer {
                     background-color: var(--cyan);
                 }
 
+                &:focus,
                 &:focus-visible {
                     outline: 2px solid var(--cyan);
                     outline-offset: 2px;
+                }
+
+                &:active {
+                    margin: 0.25rem -0.25rem -0.25rem 0.25rem;
+                    box-shadow: none;
                 }
             }
         }
