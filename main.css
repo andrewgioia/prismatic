@@ -518,66 +518,87 @@ main {
     }
 
     .project {
-        align-items: center;
-        background-color: #444;
-        box-shadow: 0.5rem 0.5rem 0 #000;
-        display: grid;
-        gap: clamp(1.25rem, 3vw, 2.25rem);
-        grid-template-areas:
-            "icon name"
-            "date date"
-            "body body";
-        grid-template-columns: clamp(3rem, 9lvw, 6rem) minmax(0, 1fr);
-        grid-template-rows: auto auto;
-        justify-items: start;
-        padding: clamp(1.25rem, 2.5lvw, 1.75rem);
+        filter: drop-shadow(0.5rem 0.5rem 0 #000);
 
-        img {
-            aspect-ratio: 1;
-            border-radius: 22%;
-            box-shadow:
-                inset 0 0 0 1px rgba(255, 255, 255, 0.16),
-                0 0.5rem 1.25rem rgba(0, 0, 0, 0.25);
-            display: block;
-            grid-area: icon;
-            image-rendering: pixelated;
-            object-fit: contain;
-            width: 100%;
-        }
-
-        h4 {
-            font-family: Futura, sans-serif;
-            font-size: clamp(1.875rem, 4lvw, 2.5rem);
-            grid-area: name;
-            letter-spacing: -0.05em;
-            line-height: 1;
-            margin: 0 0 0 -0.25rem;
-            text-transform: uppercase;
-        }
-
-        time {
+        > div {
             align-items: center;
-            border: 2px solid var(--purple);
-            border-radius: 999px;
-            color: var(--purple);
-            display: flex;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            grid-area: date;
-            justify-content: center;
-            line-height: 1;
-            padding: 0.4rem 0.6rem;
-            text-transform: uppercase;
-            white-space: nowrap;
-        }
+            background-color: #444;
+            box-shadow: 0.5rem 0.5rem 0 #000;
+            display: grid;
+            gap: clamp(1.25rem, 3vw, 2.25rem);
+            grid-template-areas:
+                "icon name"
+                "date date"
+                "body body";
+            grid-template-columns: clamp(3rem, 9lvw, 6rem) minmax(0, 1fr);
+            grid-template-rows: auto auto;
+            justify-items: start;
+            margin: 0 -4lvw;
+            /*padding: clamp(1.25rem, 2.5lvw, 1.75rem);*/
+            padding: clamp(2rem, 6lvw, 3rem);
 
-        p {
-            font-size: 0.95rem;
-            grid-area: body;
-            line-height: 1.5;
-            margin: 0;
+            &.trapezoid {
+                box-shadow: none;
+                clip-path: polygon(3% 5%, 96% 1%, 100% 100%, 0 95%);
+            }
+
+            img {
+                aspect-ratio: 1;
+                border-radius: 22%;
+                box-shadow:
+                    inset 0 0 0 1px rgba(255, 255, 255, 0.16),
+                    0 0.5rem 1.25rem rgba(0, 0, 0, 0.25);
+                display: block;
+                grid-area: icon;
+                image-rendering: pixelated;
+                object-fit: contain;
+                width: 100%;
+            }
+
+            h4 {
+                font-family: Futura, sans-serif;
+                font-size: clamp(1.875rem, 4lvw, 2.5rem);
+                grid-area: name;
+                letter-spacing: -0.05em;
+                line-height: 1;
+                margin: 0 0 0 -0.25rem;
+                text-transform: uppercase;
+            }
+
+            time {
+                align-items: center;
+                border: 2px solid var(--purple);
+                border-radius: 999px;
+                color: var(--purple);
+                display: flex;
+                font-family: var(--font-mono);
+                font-size: 0.85rem;
+                grid-area: date;
+                justify-content: center;
+                line-height: 1;
+                padding: 0.4rem 0.6rem;
+                text-transform: uppercase;
+                white-space: nowrap;
+            }
+
+            p {
+                font-size: 0.95rem;
+                grid-area: body;
+                line-height: 1.5;
+                margin: 0;
+            }
         }
     }
+}
+
+.polygon {
+    box-shadow: none;
+    clip-path: polygon(
+        0.75rem 0,
+        calc(100% - 0.25rem) 0.5rem,
+        calc(100% - 1rem) 100%,
+        0 calc(100% - 0.5rem)
+    );
 }
 
 footer {
@@ -777,7 +798,7 @@ footer {
 
     #projects
     {
-        .project {
+        .project > div {
             align-items: start;
             grid-template-areas:
                 "icon name date"
@@ -850,9 +871,10 @@ footer {
             }
         }
 
-        .project {
+        .project > div {
             grid-template-columns: clamp(4rem, 5lvw, 6rem) minmax(0, 1fr);
             grid-template-rows: 4rem auto;
+            margin: 0;
             row-gap: 0;
 
             time {
