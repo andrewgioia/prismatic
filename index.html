@@ -76,7 +76,7 @@
     <article id="about">
       <div class="columns">
         <section aria-labelledby="about-title">
-          <h3 id="about-title">About <span>Prismatic.</span></h2>
+          <h3 id="about-title">About <span>Prismatic.</span></h3>
           <p>
             Prismatic is Michael and Andrew Gioia: brothers, designers, and developers with a combined 50+ years of experience making software that people enjoy using.
           </p>
@@ -148,19 +148,53 @@
         </section>
       </div>
     </article>
+    <article id="contact" aria-labelledby="contact-title">
+      <div class="columns">
+        <section>
+          <h3 id="contact-title">Get in touch</h3>
+          <form action="" method="post">
+            <fieldset>
+              <legend>Send a message</legend>
+              <label for="name">Name:</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+              <label for="email">Email address:</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+              <label for="message">Message:</label>
+              <textarea id="message" name="message" rows="6" required></textarea>
+              <div class="group">
+                <button type="submit">Send message</button>
+                <button type="text">Clear</button>
+              </div>
+            </fieldset>
+          </form>
+        </section>
+        <aside>
+          <p>
+            Question about a project, or somewhere we might be a good fit?
+            Send us a message and we'll get back to you within 24 hours.<sup>&dagger;</sup>
+          </p>
+          <p>
+            We will never spam or sell your contact info.
+          </p>
+          <small>
+            <sup>&dagger;</sup> We don't get a lot of email, so probably faster :P
+          </small>
+        </aside>
+      </div>
+    </article>
   </main>
   <footer>
     <section>
       <big>Prismatic <span>//</span> Software + Games</big>
       <strong>Make good things that last</strong>
-      <form action="" method="post">
+      <form id="newsletter" action="" method="post">
         <em>Very occasional release notes</em>
         <p id="note">
           Get updates a few times a year when we release software, launch a game, or have something worth sharing. We&rsquo;ll never spam you or sell your email address.
         </p>
-        <label for="email">Email address</label>
+        <label for="subscriber">Email address</label>
         <div class="group">
-          <input id="email" name="email" type="email" autocomplete="email" placeholder="zoidberg@freemail.web" aria-describedby="note" required>
+          <input id="subscriber" name="subscriber" type="email" autocomplete="email" placeholder="zoidberg@freemail.web" aria-describedby="note" required>
           <button type="submit">Keep me posted</button>
         </div>
       </form>
