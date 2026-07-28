@@ -638,10 +638,10 @@ main {
 
     ul {
         display: grid;
-        gap: clamp(2rem, 4vw, 4rem);
+        gap: clamp(2rem, 3lvw, 4rem);
         list-style: none;
         margin: 0;
-        padding: 0;
+        padding: 2rem 0 0;
     }
 
     .project {
@@ -991,7 +991,7 @@ footer {
 
         section {
             align-content: start;
-            column-gap: 5rem;
+            column-gap: clamp(3rem, 7.5lvw, 7rem);
             grid-template-areas:
                 "name form"
                 "line form";
