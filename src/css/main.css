@@ -690,6 +690,7 @@ main {
         --background: #444;
         --color: var(--text);
         --icon: #000;
+        --overlay: #333;
         --shadow: #000;
 
         &.kithkin {
@@ -697,6 +698,7 @@ main {
             --background: #e2dacb;
             --color: var(--bg);
             --icon: #008e90;
+            --overlay: #f2eee3;
             --shadow: #807c74;
         }
 
@@ -728,7 +730,7 @@ main {
 
             img {
                 aspect-ratio: 1;
-                border-radius: 22%;
+                border-radius: 2px;
                 border: 2px solid var(--icon);
                 box-shadow: 4px 4px 0 var(--icon);
                 display: block;
@@ -750,8 +752,9 @@ main {
 
             time {
                 align-items: center;
+                background: var(--overlay);
                 border: 2px solid var(--accent);
-                border-radius: 999px;
+                border-radius: 2px;
                 color: var(--accent);
                 display: flex;
                 font-family: var(--font-mono);
