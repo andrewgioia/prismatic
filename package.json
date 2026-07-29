@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "fonts": "node scripts/fonts.js",
+    "predev": "npm run fonts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite",
+    "prebuild": "npm run fonts",
     "build": "vite build",
     "preview": "vite preview"
   },
@@ -14,6 +17,7 @@
   "license": "MIT",
   "type": "commonjs",
   "devDependencies": {
+    "hack-font": "^3.3.0",
     "vite": "^8.1.5"
   }
 }
