@@ -40,3 +40,24 @@ if (header && nav) {
     window.addEventListener("scroll", queueUpdate, { passive: true });
     window.addEventListener("resize", queueUpdate);
 }
+
+const experiences = document.querySelectorAll("time.experience");
+
+if (experiences.length) {
+    const year = 365.2425 * 24 * 60 * 60 * 1000;
+
+    const updateExperiences = () => {
+        const now = Date.now();
+
+        for (const experience of experiences) {
+            const start = new Date(experience.dateTime).getTime();
+            const factor = Number(experience.dataset.factor ?? 1);
+            const years = ((now - start) / year) * factor;
+
+            experience.textContent = `${years.toPrecision(11)} Yrs`;
+        }
+    };
+
+    updateExperiences();
+    window.setInterval(updateExperiences, 100);
+}
