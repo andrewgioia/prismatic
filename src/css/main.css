@@ -373,6 +373,7 @@ nav {
         width: 100lvw;
 
         menu {
+            align-items: center;
             font-size: 1.125rem;
             gap: min(1.5rem, 5lvw);
             margin-top: -2px;
@@ -382,7 +383,7 @@ nav {
 
                 span {
                     position: relative;
-                    top: 0.125rem;
+                    top: 0.2rem;
                 }
             }
         }
@@ -933,6 +934,7 @@ footer {
         > a {
             font-size: 1.5rem;
             grid-area: stone;
+            padding-top: 0.2rem;
             text-decoration: none;
         }
 
