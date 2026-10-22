@@ -145,19 +145,27 @@
       <div class="columns">
         <section>
           <h3 id="contact-title">Get in touch</h3>
-          <form action="" method="post">
+          <form action="https://api.gioia.dev/prismatic/contact" method="post" accept-charset="UTF-8">
             <fieldset>
               <legend>Send a message</legend>
               <label for="name">Name:</label>
-              <input id="name" name="name" type="text" autocomplete="name" required>
+              <input id="name" name="name" type="text" autocomplete="name" maxlength="120" required>
               <label for="email">Email address:</label>
-              <input id="email" name="email" type="email" autocomplete="email" required>
+              <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required>
               <label for="message">Message:</label>
-              <textarea id="message" name="message" rows="6" required></textarea>
+              <textarea id="message" name="message" rows="6" maxlength="5000" required></textarea>
+              <label class="trap" for="website">Website:</label>
+              <input class="trap" id="website" name="website" type="text" tabindex="-1" autocomplete="off">
               <div class="group">
                 <button type="submit">Send message</button>
-                <button type="text">Clear</button>
+                <button type="reset">Clear</button>
               </div>
+              <p class="status success" id="contact-sent" role="status">
+                Message sent. Thanks for getting in touch!
+              </p>
+              <p class="status error" id="contact-error" role="alert">
+                We couldn't send that message. Please check the fields and try again, or email us directly.
+              </p>
             </fieldset>
           </form>
         </section>

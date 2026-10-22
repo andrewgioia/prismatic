@@ -1,0 +1,15 @@
+defaults
+auth on
+tls on
+tls_starttls off
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+syslog LOG_MAIL
+
+account prismatic
+host mail.gioia.email
+port 465
+from prismatic@gioia.email
+user prismatic@gioia.email
+passwordeval cat /etc/prismatic/smtp-password
+
+account default : prismatic

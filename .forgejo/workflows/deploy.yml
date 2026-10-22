@@ -36,4 +36,4 @@ jobs:
         env:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
-        run: rsync --archive --compress --delete --chmod=D755,F644 dist/ "$DEPLOY_USER@$DEPLOY_HOST:/var/www/prismatic.gioia.dev/"
+        run: rsync --archive --compress --delete --chmod=D755,F644 dist/ "$DEPLOY_USER@$DEPLOY_HOST:/var/www/prismatic.gioia.dev/" && rsync --archive --compress --chmod=F644 server/contact.php "$DEPLOY_USER@$DEPLOY_HOST:/var/www/api.gioia.dev/prismatic/contact.php"

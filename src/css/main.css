@@ -443,6 +443,30 @@ form
             flex-grow: 1;
         }
     }
+
+    .trap {
+        left: -10000lvw;
+        position: absolute;
+    }
+
+    .status {
+        border: 2px solid currentColor;
+        display: none;
+        margin: 1rem -2px 0;
+        padding: 1rem;
+
+        &:target {
+            display: block;
+        }
+
+        &.success {
+            color: var(--green);
+        }
+
+        &.error {
+            color: var(--pink);
+        }
+    }
 }
 
 button,
