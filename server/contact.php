@@ -73,7 +73,7 @@ $sent = mail(RECIPIENT, SUBJECT, $body, [
 ]);
 
 if (!$sent) {
-    error_log('Prismatic contact form: SMTP submission failed.');
+    error_log('Prismatic contact form: SMTP submission failed. sendmail_path=' . ini_get('sendmail_path'));
     finish('error');
 }
 
