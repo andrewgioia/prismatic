@@ -23,6 +23,36 @@
   <link rel="stylesheet" crossorigin href="/css/main.css">
 </head>
 <body>
+  <aside id="alerts" aria-label="Form status messages">
+    <p class="status success" id="contact-sent" role="status">
+      <span>
+        <b>Message sent.</b>
+        <span> Thanks for getting in touch!</span>
+      </span>
+      <a class="dismiss" href="#" aria-label="Dismiss message">&times;</a>
+    </p>
+    <p class="status error" id="contact-error" role="alert">
+      <span>
+        <strong>We couldn't send your message.</strong>
+        <span>Please check the fields and try again, or email us directly.</span>
+      </span>
+      <a class="dismiss" href="#" aria-label="Dismiss message">&times;</a>
+    </p>
+    <p class="status success" id="newsletter-sent" role="status">
+      <span>
+        <strong>You're on the list!</strong>
+        <span>We'll be in touch when we have something worth sharing.</span>
+      </span>
+      <a class="dismiss" href="#" aria-label="Dismiss message">&times;</a>
+    </p>
+    <p class="status error" id="newsletter-error" role="alert">
+      <span>
+        <strong>We couldn't add you to the list.</strong>
+        <span>Please check your email address and try again.</span>
+      </span>
+      <a class="dismiss" href="#" aria-label="Dismiss message">&times;</a>
+    </p>
+  </aside>
   <header id="top">
     <div id="shapes" aria-hidden="true">
       <div class="group left">
@@ -148,6 +178,7 @@
           <form action="https://api.gioia.dev/prismatic/contact" method="post" accept-charset="UTF-8">
             <fieldset>
               <legend>Send a message</legend>
+              <input name="form" type="hidden" value="contact">
               <label for="name">Name:</label>
               <input id="name" name="name" type="text" autocomplete="name" maxlength="120" required>
               <label for="email">Email address:</label>
@@ -160,12 +191,6 @@
                 <button type="submit">Send message</button>
                 <button type="reset">Clear</button>
               </div>
-              <p class="status success" id="contact-sent" role="status">
-                Message sent. Thanks for getting in touch!
-              </p>
-              <p class="status error" id="contact-error" role="alert">
-                We couldn't send that message. Please check the fields and try again, or email us directly.
-              </p>
             </fieldset>
           </form>
         </section>
@@ -190,16 +215,19 @@
     <section>
       <big>Prismatic <span>//</span> Software + Games</big>
       <strong>Make good things that last</strong>
-      <form id="newsletter" action="" method="post">
+      <form id="newsletter" action="https://api.gioia.dev/prismatic/contact" method="post" accept-charset="UTF-8">
+        <input name="form" type="hidden" value="newsletter">
         <em>Very occasional release notes</em>
         <p id="note">
           Get updates a few times a year when we release software, launch a game, or have something worth sharing. We're professionals and we&rsquo;ll never spam you or sell your email address.
         </p>
         <label for="subscriber">Email address</label>
         <div class="group">
-          <input id="subscriber" name="subscriber" type="email" autocomplete="email" placeholder="zoidberg@freemail.web" aria-describedby="note" required>
+          <input id="subscriber" name="subscriber" type="email" autocomplete="email" placeholder="zoidberg@freemail.web" aria-describedby="note" maxlength="254" required>
           <button type="submit">Keep me posted</button>
         </div>
+        <label class="trap" for="subscriber-website">Website:</label>
+        <input class="trap" id="subscriber-website" name="website" type="text" tabindex="-1" autocomplete="off">
       </form>
     </section>
     <aside>

@@ -430,8 +430,7 @@ legend {
     text-transform: uppercase;
 }
 
-form
-{
+form {
     .group {
         display: flex;
         flex-direction: row;
@@ -448,23 +447,55 @@ form
         left: -10000lvw;
         position: absolute;
     }
+}
 
-    .status {
-        border: 2px solid currentColor;
-        display: none;
-        margin: 1rem -2px 0;
-        padding: 1rem;
+.status {
+    align-items: flex-start;
+    background: #222;
+    border: 2px solid currentColor;
+    box-shadow: 0.5rem 0.5rem 0 #000;
+    display: none;
+    font-family: var(--font-mono);
+    gap: 1rem;
+    inset: 1rem 1rem auto;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 42rem;
+    padding: 0.75rem 1rem;
+    position: fixed;
+    width: fit-content;
+    z-index: 10;
 
-        &:target {
-            display: block;
-        }
+    &:target {
+        animation: fade 400ms ease-out both;
+        display: flex;
+    }
 
-        &.success {
-            color: var(--green);
-        }
+    &.success {
+        color: var(--green);
+    }
 
-        &.error {
-            color: var(--pink);
+    &.error {
+        color: var(--pink);
+    }
+
+    > span:has(strong) {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .dismiss {
+        color: inherit;
+        font-size: 1.5rem;
+        font-weight: bold;
+        height: 1rem;
+        line-height: 0.6667;
+        text-decoration: none;
+
+        &:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 0.25rem;
         }
     }
 }
@@ -1263,7 +1294,8 @@ footer {
     #shapes .shape,
     #pulses .pulse,
     #pulses .pulse::after,
-    nav.scroll {
+    nav.scroll,
+    .status:target {
         animation: none;
     }
 }

@@ -1,6 +1,6 @@
-# Contact endpoint
+# Form endpoint
 
-`contact.php` receives the website contact form and sends it from `prismatic@gioia.email` to `team@prismatichq.com`. It uses PHP's built-in `mail()` function with `msmtp` as the authenticated SMTP transport. It has no application dependencies or secrets in the repository.
+`contact.php` receives the website contact and newsletter forms and sends notifications from `prismatic@gioia.email` to `team@prismatichq.com`. It uses PHP's built-in `mail()` function with `msmtp` as the authenticated SMTP transport. It has no application dependencies or secrets in the repository.
 
 ## 1. Mail server
 
@@ -74,4 +74,4 @@ Validate and reload the configuration with `sudo nginx -t && sudo systemctl relo
 
 The Forgejo workflow deploys `server/contact.php` to `/var/www/api.gioia.dev/prismatic/contact.php`. The destination directory must exist and be writable by the deployment user before the first run.
 
-The website submits directly to `https://api.gioia.dev/prismatic/contact`. Standard HTML form posts do not require CORS headers. After processing, the endpoint redirects the browser to the matching status message at `https://prismatichq.com/#contact-sent` or `https://prismatichq.com/#contact-error`.
+Both website forms submit directly to `https://api.gioia.dev/prismatic/contact`. Standard HTML form posts do not require CORS headers. After processing, the endpoint redirects the browser to the matching contact or newsletter status message on `https://prismatichq.com/`.
