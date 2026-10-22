@@ -55,7 +55,7 @@ location = /prismatic/contact {
     limit_req zone=contact burst=2 nodelay;
     include fastcgi_params;
     fastcgi_param SCRIPT_FILENAME /var/www/api.gioia.dev/prismatic/contact.php;
-    fastcgi_param PHP_ADMIN_VALUE "sendmail_path=/usr/bin/msmtp --file=/etc/prismatic/msmtprc -t";
+    fastcgi_param PHP_ADMIN_VALUE "sendmail_path=/usr/bin/msmtp --file /etc/prismatic/msmtprc -t";
     fastcgi_pass unix:/run/php/php-fpm.sock;
 }
 
