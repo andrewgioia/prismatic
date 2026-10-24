@@ -74,4 +74,4 @@ Validate and reload the configuration with `sudo nginx -t && sudo systemctl relo
 
 The Forgejo workflow deploys `server/contact.php` to `/var/www/api.gioia.dev/prismatic/contact.php`. The destination directory must exist and be writable by the deployment user before the first run.
 
-Both website forms submit directly to `https://api.gioia.dev/prismatic/contact`. Standard HTML form posts do not require CORS headers. After processing, the endpoint redirects the browser to the matching contact or newsletter status message on `https://prismatichq.com/`.
+Both website forms submit directly to `https://api.gioia.dev/prismatic/contact`. Standard HTML form posts do not require CORS headers. The endpoint only sends email for requests whose `Origin` header exactly matches `https://prismatichq.com`; rejected submissions receive a normal success redirect so automated clients cannot tell that they were filtered. After processing, the endpoint redirects the browser to the matching contact or newsletter status message on `https://prismatichq.com/`.

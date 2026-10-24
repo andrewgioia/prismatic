@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 const WEBSITE_URL = 'https://prismatichq.com/';
+const WEBSITE_ORIGIN = 'https://prismatichq.com';
 const RECIPIENT = 'team@prismatichq.com';
 const SENDER = 'Prismatic Website <prismatic@gioia.email>';
 const CONTACT_SUBJECT = 'New message from prismatichq.com';
@@ -22,6 +23,13 @@ function field(string $name): ?string
     $value = $_POST[$name] ?? null;
 
     return is_string($value) ? trim($value) : null;
+}
+
+function hasAllowedOrigin(): bool
+{
+    $origin = $_SERVER['HTTP_ORIGIN'] ?? null;
+
+    return is_string($origin) && $origin === WEBSITE_ORIGIN;
 }
 
 function invalidEmail(?string $email): bool
@@ -61,6 +69,12 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
 
 $form = field('form') === 'newsletter' ? 'newsletter' : 'contact';
 $website = field('website');
+
+// Browsers include the page origin when posting either form to api.gioia.dev.
+// Silently accept direct or foreign submissions without sending an email.
+if (!hasAllowedOrigin()) {
+    finish($form, 'sent');
+}
 
 // Bots commonly fill fields that are visually hidden from real visitors.
 if ($website !== null && $website !== '') {
