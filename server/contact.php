@@ -32,6 +32,13 @@ function hasAllowedOrigin(): bool
     return is_string($origin) && $origin === WEBSITE_ORIGIN;
 }
 
+function hasExpectedBrowserContext(): bool
+{
+    return ($_SERVER['HTTP_SEC_FETCH_SITE'] ?? null) === 'cross-site'
+        && ($_SERVER['HTTP_SEC_FETCH_MODE'] ?? null) === 'navigate'
+        && ($_SERVER['HTTP_SEC_FETCH_DEST'] ?? null) === 'document';
+}
+
 function invalidEmail(?string $email): bool
 {
     return $email === null
@@ -70,9 +77,9 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
 $form = field('form') === 'newsletter' ? 'newsletter' : 'contact';
 $website = field('website');
 
-// Browsers include the page origin when posting either form to api.gioia.dev.
-// Silently accept direct or foreign submissions without sending an email.
-if (!hasAllowedOrigin()) {
+// Browsers include the origin and navigation context when posting either form.
+// Silently accept direct, foreign, or non-browser submissions without email.
+if (!hasAllowedOrigin() || !hasExpectedBrowserContext()) {
     finish($form, 'sent');
 }
 
